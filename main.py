@@ -54,5 +54,4 @@ def daft_scraper():
     # details = soup.find('div', class_='PropertyPage__ContentSection-sc-14jmnho-3 gXMwcB')
     # print(details.text)
 
-def hello():
-  print('hello')
+daft_scraper()

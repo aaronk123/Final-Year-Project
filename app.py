@@ -15,8 +15,10 @@ def hello_world():
 @app.route("/application", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        user = request.form["nm"]
-        print(user)
+        salary = request.form["salary"]
+        age = request.form["age"]
+        print(salary)
+        print(age)
         return redirect("/results")
     else:
         return render_template("application.html")
