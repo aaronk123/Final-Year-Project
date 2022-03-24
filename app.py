@@ -1,6 +1,4 @@
 from cgi import test
-#from crypt import methods
-#from crypt import methods
 from flask import Flask, render_template, request, redirect
 import main as test_script
 

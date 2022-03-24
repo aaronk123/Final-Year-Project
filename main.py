@@ -10,7 +10,7 @@ def daft_scraper():
     #daft.set_location("Cork City")
     daft.set_search_type(SearchType.RESIDENTIAL_SALE)
     daft.set_min_price(1000)
-    daft.set_max_price(500000)
+    daft.set_max_price(1000000)
 
     listings = daft.search()
 
@@ -54,4 +54,4 @@ def daft_scraper():
     # details = soup.find('div', class_='PropertyPage__ContentSection-sc-14jmnho-3 gXMwcB')
     # print(details.text)
 
-daft_scraper()
+#daft_scraper()
