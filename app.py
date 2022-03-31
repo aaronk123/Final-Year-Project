@@ -26,5 +26,6 @@ def results():
 
     return "<p>results page</p>"
 
-
+if __name__ == "__main__":
+    app.run(debug=True)
 #https://python-adv-web-apps.readthedocs.io/en/latest/flask_forms.html#configure-the-form

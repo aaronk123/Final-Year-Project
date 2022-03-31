@@ -1,4 +1,5 @@
 from doctest import master
+from turtle import left
 import pandas as pd
 import numpy as np
 
@@ -23,6 +24,34 @@ def update_data():
     # Append new houses from new df to old df
     # Update existing entries for price increases/decreases
     ##########################################################
+
+    i=0
+    
+    # while i< len(scraped_df):
+    #     j=0
+    #     while j< len(master_df):
+    #         if ((master_df.iloc[j].daft_link)==(scraped_df.iloc[i].daft_link)):
+    #             print('hit')
+            
+    #         j=j+1
+    #     i=i+1
+        
+    ####################################
+
+    # master_df.set_index("daft_link")
+    # scraped_df.set_index("daft_link")
+
+    all_entries_df = pd.merge(master_df, scraped_df, on="daft_link", how="outer", indicator="True")
+
+    #in_master_not_in_new_scraped_df = all_entries_df.loc[lambda x: x['_merge'] == 'left_only']
+
+    in_master_not_in_new_scraped_df = master_df.merge(scraped_df, left_on="daft_link", right_on="daft_link")
+    other = scraped_df.merge(master_df, left_on="daft_link", right_on="daft_link")
+
+    # not_in_master_in_scraped_df = all_entries_df.loc[lambda x: x['_merge'] == 'right_only']
+
+    
+    print(other)
 
     # Remove sold properties
     master_df = remove_entries(master_df, scraped_df)
