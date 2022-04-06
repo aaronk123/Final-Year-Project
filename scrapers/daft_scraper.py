@@ -5,12 +5,13 @@ from bs4 import BeautifulSoup
 import requests
 
 def daft_scraper():
+    
     daft = Daft()
 
     #daft.set_location("Cork City")
     daft.set_search_type(SearchType.RESIDENTIAL_SALE)
-    daft.set_min_price(1000)
-    daft.set_max_price(1000000)
+    # daft.set_min_price(1000)
+    # daft.set_max_price(1000000)
 
     listings = daft.search()
 
