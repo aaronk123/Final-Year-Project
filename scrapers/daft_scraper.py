@@ -3,6 +3,7 @@ from daftlistings import Daft, Location, SearchType, PropertyType, SortType, Map
 import re
 from bs4 import BeautifulSoup
 import requests
+import os
 
 def daft_scraper():
     
@@ -10,8 +11,8 @@ def daft_scraper():
 
     #daft.set_location("Cork City")
     daft.set_search_type(SearchType.RESIDENTIAL_SALE)
-    # daft.set_min_price(1000)
-    # daft.set_max_price(1000000)
+    daft.set_min_price(1000)
+    daft.set_max_price(1000000)
 
     listings = daft.search()
 
@@ -55,4 +56,56 @@ def daft_scraper():
     # details = soup.find('div', class_='PropertyPage__ContentSection-sc-14jmnho-3 gXMwcB')
     # print(details.text)
 
+    
+    #scrape_counties(daft)
+
+
+def scrape_counties():
+
+    daft = Daft()
+    
+
+    counties = ['Carlow', 'Cavan', 'Clare', 'Cork', 'Donegal', 'Dublin', 'Galway', 'Kerry', 'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford', 'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon', 'Sligo', 'Tipperary', 'Waterford', 'Westmeath', 'Wexford', 'Wicklow']
+
+
+    for county in counties:
+        print('######################')
+        print('County being scraped', county)
+        print('####################')
+        daft.set_search_type(SearchType.RESIDENTIAL_SALE)
+        daft.set_location(county)
+        daft.set_min_price(50000)
+        daft.set_max_price(1000000)
+        
+        listings = daft.search()
+
+        # cache the listings in the local file
+        try:
+            with open("result.txt", "w") as fp:
+                fp.writelines("%s\n" % listing.as_dict_for_mapping() for listing in listings)
+
+        except Exception:
+            print("error here")
+            # print(listings)
+            # print('dont error')
+            pass
+
+        # read from the local file
+        with open("result.txt") as fp:
+            lines = fp.readlines()
+
+        properties = []
+        for line in lines:
+            properties.append(eval(line))
+
+        df = pd.DataFrame(properties)
+        df=df[df['daft_link'].str.contains(f'co.{county.lower()}')]
+        print(df)
+
+
+        df.to_csv(f'county_data/{county}.csv')
+        os.remove('result.txt')
+           
+
+scrape_counties()
 #daft_scraper()
