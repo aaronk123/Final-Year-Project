@@ -45,6 +45,7 @@ def daft_scraper():
     print(df)
 
     df.to_csv('daft properties.csv')
+    os.remove('result.txt')
     #property=df.iloc[0]
 
     # link=property['daft_link']
@@ -76,7 +77,7 @@ def scrape_counties():
         daft.set_location(county)
         daft.set_min_price(50000)
         daft.set_max_price(1000000)
-        
+
         listings = daft.search()
 
         # cache the listings in the local file
@@ -100,6 +101,7 @@ def scrape_counties():
 
         df = pd.DataFrame(properties)
         df=df[df['daft_link'].str.contains(f'co.{county.lower()}')]
+        df=df[~df['daft_link'].str.contains('site')]
         print(df)
 
 
