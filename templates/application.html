@@ -1,48 +1,76 @@
-{% extends "base.html" %}
-{% block title %}{% endblock %}
 
-{% block content %}
-<style type="text/css">
-	form{
-		text-align: center;
-	}
-</style>
-<form class="needs-validation" novalidate width="200" >
-	<div class="form-row">
-	  <div class="col-md-4 mb-3">
-		<label for="validationTooltip01">Total income</label>
-		<input type="text" class="form-control" id="validationTooltip01" placeholder="Total yearly buying income" value="" required>
-		<div class="valid-tooltip">
-		  Looks good!
-		</div>
-	  </div>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/application.css') }}">
+</head>
+<body>
+<div id="wrapper">
+	<br><br>
+	<nav>
+		<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="application">Application</a></li>
+		<li><a href="https://github.com/aaronk123/Final-Year-Project">Github</a></li>
+		</ul>
+	</nav>
 
-	  <div class="col-md-4 mb-3">
-		<label for="validationTooltip02">Number of desired rooms</label>
-		<input type="text" class="form-control" id="validationTooltip02" placeholder="Number of rooms" value="" required>
-		<div class="valid-tooltip">
-		  Looks good!
-		</div>
-	  </div>
+	<br><br>
 
-	<div class="form-row">
-	  <div class="col-md-6 mb-3">
-		<label for="validationTooltip03">City</label>
-		<input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
-		<div class="invalid-tooltip">
-		  Please provide a valid city.
-		</div>
-	  </div>
-	  
-	  <div class="col-md-3 mb-3">
-		<label for="validationTooltip05">Minimum cost</label>
-		<input type="text" class="form-control" id="validationTooltip05" placeholder="If minimum cost is not required enter 0" required>
-		<div class="invalid-tooltip">
-		  Please provide a valid zip.
-		</div>
-	  </div>
-	</div>
-	<button class="btn btn-primary" type="submit">Submit form</button>
-  </form>
-{% endblock %}
+	<form  method="post">
+
+		<label for="budget">Budget:</label><br>
+  		<input type="text" id="budget" name="budget" value=""><br>
+
+		<label for="rooms">Desired number of bedrooms:</label><br>
+  		<input type="text" id="rooms" name="rooms" value=""><br>
+
+		<label for="bathrooms">Desired number of bathrooms:</label><br>
+  		<input type="text" id="bathrooms" name="bathrooms" value=""><br>
+
+		<select class="form-control" id="county_dropdown" name="county_dropdown">
+			<option value="carlow">Carlow</option>
+			<option value="cavan">Cavan</option>
+			<option value="clare">Clare</option>
+			<option value="cork">Cork</option>
+			<option value="donegal">Donegal</option>
+			<option value="dublin">Dublin</option>
+			<option value="galway">Galway</option>
+			<option value="kerry">Kerry</option>
+			<option value="kildare">Kildare</option>
+			<option value="kilkenny">Kilkenny</option>
+			<option value="laois">Laois</option>
+			<option value="leitrim">Leitrim</option>
+			<option value="limerick">Limerick</option>
+			<option value="longford">Longford</option>
+			<option value="louth">Louth</option>
+			<option value="mayo">Mayo</option>
+			<option value="meath">Meath</option>
+			<option value="monaghan">Monaghan</option>
+			<option value="offaly">Offaly</option>
+			<option value="roscommon">Roscommon</option>
+			<option value="sligo">Sligo</option>
+			<option value="tipperary">Tipperary</option>
+			<option value="waterford">Waterford</option>
+			<option value="westmeath">Westmeath</option>
+			<option value="wexford">Wexford</option>
+			<option value="wicklow">Wicklow</option>
+		</select>
+
+		<select name="stakeholder_group">
+			<option value="young">Young and no family</option>
+			<option value="family">Family</option>
+			<option value="elderly">Elderly</option>
+		</select>
+
+		
+		
+		<input type="submit">
+	</form>
+
+	
+</div>
+</body>
+</html>
+
 

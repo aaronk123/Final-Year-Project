@@ -1,0 +1,144 @@
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  body {
+	margin:0px;
+	font-family:arial;
+	font-size:14px;
+}
+#wrapper {
+width:900px;
+margin:0 auto 0 auto;
+}
+#top {
+width: 900px;
+height:200px;
+}
+nav {
+	width:900px;
+	height:60px;
+	background-color:#999999;
+}
+nav ul {
+margin:0px;
+padding:0px;	
+	
+	}
+
+
+
+nav ul li {
+list-style-type: none;
+text-decoration: none;
+float:auto;
+
+}
+a:link {
+margin:0px;
+padding:0px;
+float:left;
+height: 60px;
+width: 300px;
+display: block;
+text-align: center;
+/* vertical-align: middle; */
+line-height: 60px;
+text-decoration: none;
+color: #000000;
+background-color: #FFFFFF;
+}
+a:visited {
+float:left;
+height: 60px;
+width: 300px;
+display: block;
+text-align: center;
+/* vertical-align: middle; */
+line-height: 60px;
+text-decoration: none;
+color: #036;
+background-color: #FFFFFF;
+}
+a:hover {
+float:left;
+height: 60px;
+width: 300px;
+display: block;
+text-align: center;
+/* vertical-align: middle; */
+line-height: 60px;
+text-decoration: none;
+color: #036;
+background-color: #FF6666;
+}
+a:active {
+float:left;
+height: 60px;
+width: 300px;
+display: block;
+text-align: center;
+/* vertical-align: middle; */
+line-height: 60px;
+text-decoration: none;
+color: #036;
+background-color: #FF3333;
+}
+
+#photo {
+	width:900px;
+	height:220px;
+	float:left;
+	background-image:url("images/photo.jpg");
+}
+#left {
+	width:300px;
+	height:200px;
+	float:left;
+	background-color:#99ff99;
+}
+#main {
+	width:600px;
+	height:200px;
+	float:left;
+	background-color:#99ffff;
+}
+#bottom {
+	width:900px;
+	height:150px;
+	float:left;
+	background-color:#696969;
+}
+li:nth-of-type(1n) {
+
+list-style-type: none;
+text-decoration: none;
+}
