@@ -16,13 +16,6 @@ def daft_scraper():
 
     listings = daft.search()
 
-    # for listing in listings:
-    #     print(f'{listing.title}')
-    #     print(f'{listing.daft_link}')
-    #     print(f'{listing.price}')
-    #     # print(f'{listing.distance_to(dublin_castle_coords):.3}km')
-    #     print('')
-
     # cache the listings in the local file
     try:
         with open("result.txt", "w") as fp:
@@ -42,24 +35,12 @@ def daft_scraper():
         properties.append(eval(line))
 
     df = pd.DataFrame(properties)
-    print(df)
+    df=df[~df['daft_link'].str.contains('site')]
 
     df.to_csv('daft properties.csv')
     os.remove('result.txt')
-    #property=df.iloc[0]
-
-    # link=property['daft_link']
-    # print(link)
-    # URL = link
-    # header = {'User-Agent': 'Mozilla/5.0'}
-    # page = requests.get(URL, headers = header)
-    # soup = BeautifulSoup(page.content, 'html.parser')
-    # details = soup.find('div', class_='PropertyPage__ContentSection-sc-14jmnho-3 gXMwcB')
-    # print(details.text)
-
-    
+     
     #scrape_counties(daft)
-
 
 def scrape_counties():
 
@@ -100,14 +81,16 @@ def scrape_counties():
             properties.append(eval(line))
 
         df = pd.DataFrame(properties)
+        
+        #ensure the dataframe is made up of only the given county
         df=df[df['daft_link'].str.contains(f'co.{county.lower()}')]
+
+        #filter out any sites which make it into the residential section on daft
         df=df[~df['daft_link'].str.contains('site')]
-        print(df)
-
-
+        
         df.to_csv(f'county_data/{county}.csv')
         os.remove('result.txt')
            
 
-scrape_counties()
+# scrape_counties()
 #daft_scraper()
