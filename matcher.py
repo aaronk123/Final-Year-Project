@@ -57,14 +57,7 @@ def match_data(budget, rooms, bathrooms, county, stakeholder):
         
     
 def map_data(df):
-    #df=df.drop('Unnamed: 0')
-    # df['monthly_price']=df['monthly_price'].astype('float').astype('Int64')
-    # for col in df.columns:
-    #     print(col)
-
-    # print(type(df))
-    print(df)
-
+    
     try: 
         print('trying to map data')
         property_map = MapVisualization(df)
